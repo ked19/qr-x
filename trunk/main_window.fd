@@ -1,0 +1,82 @@
+# data file for the Fltk User Interface Designer (fluid)
+version 1.0302 
+header_name {.h} 
+code_name {.cxx}
+decl {\#include "main_winApp.h"} {public global
+} 
+
+Function {make_window()} {open
+} {
+  Fl_Window pMain_win {
+    label {Face recognition} open
+    xywh {566 234 1234 684} type Double visible
+  } {
+    Fl_Group pCamera_group {
+      label {Camera setting} open
+      xywh {943 20 289 110} box DOWN_BOX align 5
+    } {
+      Fl_Input pIP0_txtIn {
+        label {IP address:}
+        xywh {1048 26 39 24}
+      }
+      Fl_Input pIP1_txtIn {
+        label {*}
+        xywh {1095 26 39 24}
+      }
+      Fl_Input pIP2_txtIn {
+        label {*}
+        xywh {1142 26 39 24}
+      }
+      Fl_Input pIP3_txtIn {
+        label {*}
+        xywh {1189 26 39 24}
+      }
+      Fl_Input pPort_txtIn {
+        label {HTTP port:}
+        xywh {1048 50 100 24}
+      }
+      Fl_Input pAccount_txtIn {
+        label {Account name:}
+        xywh {1048 76 100 24}
+      }
+      Fl_Input pPasswd_txtIn {
+        label {Password:}
+        xywh {1048 101 100 24}
+      }
+    }
+    Fl_Group pShooter_group {
+      label User open
+      xywh {943 160 214 60} box DOWN_BOX align 5
+    } {
+      Fl_Button pConnect_bttn {
+        label Connect
+        callback RunConnect
+        xywh {952 195 195 20}
+      }
+      Fl_Light_Button pClose_litBttn {
+        label Close
+        callback Disconnect
+        xywh {952 170 68 20} deactivate
+      }
+    }
+    Fl_Light_Button pCalculate_litBttn {
+      label Calculate
+      callback ComputeScore
+      xywh {943 230 215 40} align 16 deactivate
+    }
+    Fl_Group pTarget_win {open
+      xywh {5 5 935 675} box BORDER_BOX
+      class MyGlWindow
+    } {}
+  }
+  code {//initialization
+pIP0_txtIn->value("172");
+pIP1_txtIn->value("16");
+pIP2_txtIn->value("15");
+pIP3_txtIn->value("225"); //208");
+
+pPort_txtIn->value("80");
+pAccount_txtIn->value("admin"); //Admin");
+pPasswd_txtIn->value("123456"); //ivs123456");} {selected
+  }
+} 
